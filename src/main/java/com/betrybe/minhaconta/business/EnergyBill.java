@@ -1,6 +1,6 @@
 package com.betrybe.minhaconta.business;
 
-import com.ions.lightdealer.sdk.model.Address
+import com.ions.lightdealer.sdk.model.Address;
 import com.ions.lightdealer.sdk.model.ElectronicDevice;
 
 /**
@@ -12,7 +12,7 @@ public class EnergyBill {
   boolean residentialPlan;
   double rate = 0.15;
 
-  public energyBill(Address adress, boolean residentialPlan) {
+  public EnergyBill(Address adress, boolean residentialPlan) {
     this.address = adress;
     this.residentialPlan = residentialPlan;
   }
