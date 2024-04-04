@@ -1,5 +1,6 @@
 package com.betrybe.minhaconta.business;
 
+import com.ions.lightdealer.sdk.model.Address
 import com.ions.lightdealer.sdk.model.ElectronicDevice;
 
 /**
@@ -7,6 +8,14 @@ import com.ions.lightdealer.sdk.model.ElectronicDevice;
  */
 public class EnergyBill {
   // Req. 1 – Create class constructor and attributes.
+  Address address;
+  boolean residentialPlan;
+  double rate = 0.15;
+
+  public energyBill(Address adress, boolean residentialPlan) {
+    this.address = adress;
+    this.residentialPlan = residentialPlan;
+  }
 
   /**
    * Req. 2 – Calculates an adjusted tariff for non-residential plans.
