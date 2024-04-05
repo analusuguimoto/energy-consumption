@@ -99,6 +99,20 @@ public class Application {
    * Req. 8 – Register address devices.
    */
   public void registerAddressDevices() {
+    String property = this.ui.inputAddressRegistration();
+    Address address = this.api.findAddress(property);
+
+    if (address == null) {
+      this.ui.showMessage("Endereço não encontrado!");
+    } else {
+      int numberElecDevices = this.ui.inputNumberOfDevices();
+
+      for (int i = 0; i < numberElecDevices; i++) {
+        ElectronicDevice electronicDevice = new ElectronicDevice();
+        this.ui.fillDeviceData(electronicDevice);
+        this.api.addDeviceToAddress(electronicDevice, address);
+      }
+    }
   }
 
   /**
