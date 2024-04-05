@@ -1,6 +1,7 @@
 package com.betrybe.minhaconta.presentation;
 
 import com.betrybe.minhaconta.business.EnergyAccount;
+import com.betrybe.minhaconta.business.EnergyBill;
 import com.ions.lightdealer.sdk.model.Address;
 import com.ions.lightdealer.sdk.model.Client;
 import com.ions.lightdealer.sdk.model.ElectronicDevice;
@@ -119,6 +120,16 @@ public class Application {
    * Req. 9 – Estimates the address energy bill.
    */
   public void estimateAddressBill() {
+    String property = this.ui.inputAddressRegistration();
+    Address address = this.api.findAddress(property);
+
+    if (address == null) {
+      this.ui.showMessage("Endereço não encontrado!");
+    } else {
+      EnergyBill bill = new EnergyBill(address, true);
+      double value = bill.estimate();
+      this.ui.showMessage("Valor estimado para a conta: " + value);
+    }
   }
 
   /**
